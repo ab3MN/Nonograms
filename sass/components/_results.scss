@@ -1,0 +1,40 @@
+.results {
+  width: 30rem;
+  color: $color-btn-hover;
+  margin-bottom: 2rem;
+  &__table {
+    width: 90%;
+    margin: 0 auto 1rem;
+  }
+}
+
+.own__results {
+  font-size: 3rem;
+}
+.best__results {
+  font-size: 2.5rem;
+}
+.own__results,
+.best__results {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.own__results > span {
+  color: $color-txt-light;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
+
+th,
+tr {
+  color: $color-txt-light;
+  font-size: 2rem;
+}
+td {
+  text-align: center;
+}

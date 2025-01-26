@@ -1,0 +1,14 @@
+//Abstract
+@import './abstract/constants';
+@import './abstract/placeholders';
+@import './abstract/mixins';
+
+//Base
+@import './base/normalize';
+@import './base/base';
+
+//Components
+@import './components/header';
+@import './components/nonograms';
+@import './components/modal';
+@import './components/results';

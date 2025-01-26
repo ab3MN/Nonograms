@@ -1,0 +1,389 @@
+.nonograms {
+  display: flex;
+  justify-content: space-around;
+  @include desctop-width-L {
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  &__timer {
+    @include desctop-width-L {
+      margin-top: 2rem;
+    }
+  }
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    row-gap: 2rem;
+  }
+  &__title {
+    font-size: 3rem;
+    margin-right: 2rem;
+  }
+  &__wrapper {
+    width: 403px;
+    box-sizing: content-box;
+    border: 3px solid $color-bgc-backdrop;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  &__select {
+    font-size: $font-txt-L;
+    font-size: 1.6rem;
+    background: $color-btn;
+    outline: 4px solid $color-btn-hover;
+    border-radius: 20px;
+    padding: 10px;
+    border-right: 16px solid transparent;
+    color: $color-btn-hover;
+  }
+  &__timer {
+    font-size: 2rem;
+  }
+
+  /* ==================== CLUE & LOGO ==================== */
+  &__logo {
+    height: 20rem;
+  }
+  &__logo,
+  &__clues.left {
+    width: 20rem;
+    box-sizing: content-box;
+  }
+  &__clues.top,
+  &__board {
+    width: 20rem;
+    height: 20rem;
+    box-sizing: content-box;
+  }
+  &__logo,
+  &__clues.top {
+    border-bottom: 3px solid $color-bgc-backdrop;
+  }
+  &__clues.top,
+  &__clues.left {
+    display: flex;
+  }
+  &__logo,
+  &__clues.left {
+    border-right: 3px solid $color-bgc-backdrop;
+  }
+
+  &__clue {
+    display: flex;
+    flex-direction: column-reverse;
+    &--col,
+    &--row {
+      box-sizing: border-box;
+      width: 4rem;
+      height: 4rem;
+      border: 0.5px solid $color-bgc-backdrop;
+
+      @extend %flex-center;
+      font-size: $font-txt-L;
+      font-weight: bold;
+    }
+  }
+
+  &__clues.left {
+    flex-wrap: wrap;
+    .nonograms__clue {
+      box-sizing: border-box;
+      flex-direction: row-reverse;
+    }
+  }
+
+  /* ==================== BOARD ==================== */
+  &__board {
+    box-sizing: border-box;
+
+    &--row {
+      height: 4rem;
+    }
+
+    &--item {
+      height: 4rem;
+      width: 4rem;
+      box-sizing: border-box;
+      border: 0.5px solid $color-bgc-backdrop;
+      height: 100%;
+      background-color: $color-bgc-body;
+    }
+
+    &--item.active {
+      background-color: $color-bgc-backdrop;
+    }
+    &--item.cross {
+      position: relative;
+      span {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        display: block;
+        width: 2.6rem;
+        height: 3px;
+        background-color: $color-txt-dark;
+        transition: all 0.5s;
+        transform: translateX(-1.3rem);
+      }
+      span:first-child {
+        transform: translateX(-1.3rem) rotate(45deg);
+      }
+      span:last-child {
+        transform: translateX(-1.3rem) rotate(-45deg);
+      }
+    }
+  }
+}
+
+/* ==================== MEDIUM ==================== */
+.nonograms.medium {
+  .nonograms {
+    &__logo {
+      @include tablet-width-XL {
+        height: 10rem;
+      }
+    }
+    &__logo,
+    &__clues.left {
+      @include tablet-width-XL {
+        width: 10rem;
+      }
+    }
+
+    &__clues.top {
+      .nonograms__clue:nth-child(5) {
+        .nonograms__clue--col {
+          border-right: 3px solid $color-bgc-backdrop;
+        }
+      }
+    }
+    &__clues.left {
+      .nonograms__clue:nth-child(5) {
+        .nonograms__clue--row {
+          border-bottom: 3px solid $color-bgc-backdrop;
+        }
+      }
+    }
+    &__clue {
+      &--col,
+      &--row {
+        @include tablet-width-XL {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+    &__wrapper {
+      width: 60.3rem;
+      height: 60.3rem;
+      @include tablet-width-XL {
+        width: 30.3rem;
+        height: 30.3rem;
+      }
+    }
+    &__board {
+      width: 40rem;
+      @include tablet-width-XL {
+        width: 20em;
+        &--row:nth-child(4) {
+          height: 19px;
+        }
+        &--row:nth-child(5) {
+          height: 21px;
+        }
+      }
+
+      &--row {
+        .nonograms__board--item:nth-child(5) {
+          border-right: 3px solid $color-bgc-backdrop;
+        }
+        @include tablet-width-XL {
+          height: 2rem;
+        }
+      }
+
+      &--row:nth-child(5) {
+        .nonograms__board--item {
+          border-bottom: 3px solid $color-bgc-backdrop;
+        }
+      }
+      &--item {
+        @include tablet-width-XL {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+    &__clues.top {
+      width: 40rem;
+      @include tablet-width-XL {
+        width: 20em;
+        height: 10rem;
+      }
+    }
+  }
+}
+.nonograms.hard {
+  .nonograms {
+    &__clues.top {
+      .nonograms__clue:nth-child(5),
+      .nonograms__clue:nth-child(10) {
+        .nonograms__clue--col {
+          border-right: 3px solid $color-bgc-backdrop;
+        }
+      }
+    }
+    &__clues.left {
+      .nonograms__clue:nth-child(5),
+      .nonograms__clue:nth-child(10) {
+        .nonograms__clue--row {
+          border-bottom: 3px solid $color-bgc-backdrop;
+        }
+      }
+    }
+    &__board {
+      &--row {
+        .nonograms__board--item:nth-child(5),
+        .nonograms__board--item:nth-child(10) {
+          border-right: 3px solid $color-bgc-backdrop;
+        }
+        @include tablet-width-XL {
+          height: 2rem;
+        }
+        &--row:nth-child(4),
+        &--row:nth-child(9) {
+          height: 19px;
+        }
+        &--row:nth-child(5),
+        &--row:nth-child(10) {
+          height: 21px;
+        }
+      }
+
+      &--row:nth-child(5),
+      &--row:nth-child(10) {
+        .nonograms__board--item {
+          border-bottom: 3px solid $color-bgc-backdrop;
+        }
+      }
+      &--item {
+        @include tablet-width-XL {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+    &__wrapper {
+      width: 80.3em;
+      height: 80.3rem;
+      @include tablet-width-XL {
+        width: 40.3em;
+        height: 40.29em;
+      }
+    }
+
+    &__board,
+    &__clues.top {
+      width: 60rem;
+      @include tablet-width-XL {
+        width: 30em;
+      }
+    }
+    &__logo {
+      @include tablet-width-XL {
+        height: 10rem;
+      }
+    }
+    &__logo,
+    &__clues.left {
+      @include tablet-width-XL {
+        width: 10rem;
+      }
+    }
+    &__clues.top {
+      @include tablet-width-XL {
+        height: 10rem;
+      }
+    }
+    &__clues.top,
+    &__board {
+      @include tablet-width-XL {
+        width: 30rem;
+      }
+    }
+
+    &__clue {
+      &--col,
+      &--row {
+        width: 4rem;
+        height: 4rem;
+        @include tablet-width-XL {
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+    }
+  }
+}
+.best__results {
+  font-size: 3rem;
+}
+.results__table {
+  font-size: 2rem;
+}
+
+.best__results {
+  font-size: 3rem;
+}
+.results__table {
+  font-size: 2rem;
+}
+
+/* ==================== DARK ==================== */
+#root.dark {
+  .nonograms {
+    &__select {
+      font-size: $font-txt-L;
+      font-size: 1.6rem;
+      background: $color-btn-hover;
+      outline: 4px solid $color-btn;
+      border-radius: 20px;
+      padding: 10px;
+      border-right: 16px solid transparent;
+      color: $color-btn;
+    }
+    &__clue {
+      &--col,
+      &--row {
+        border-color: $color-bgc-body;
+      }
+    }
+    &__logo,
+    &__clues.top,
+    &__clues.left {
+      border-color: $color-bgc-body;
+    }
+
+    &__wrapper {
+      border: 3px solid $color-bgc-body;
+    }
+    &__board {
+      &--item {
+        background-color: transparent;
+        border-color: $color-txt-accent;
+      }
+      &--item.active {
+        background-color: $color-txt-light;
+      }
+      &--item.cross {
+        span {
+          background-color: red;
+        }
+      }
+    }
+  }
+}

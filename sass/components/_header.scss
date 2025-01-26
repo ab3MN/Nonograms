@@ -1,0 +1,27 @@
+.header {
+  @extend %flex-center;
+
+  .button__container {
+    width: 20rem;
+    margin: 0;
+    > button {
+      background-color: $color-bgc-body;
+      > svg {
+        filter: $dark-filter-color;
+      }
+    }
+  }
+}
+/* ==================== DARK ==================== */
+#root.dark {
+  .header {
+    .button__container {
+      > button {
+        background-color: transparent;
+        > svg {
+          filter: $light-filter-color;
+        }
+      }
+    }
+  }
+}

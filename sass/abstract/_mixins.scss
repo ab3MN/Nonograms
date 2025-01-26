@@ -1,0 +1,16 @@
+@mixin tablet-width-XL {
+  @media (max-width: $tablet-width-XL) {
+    @content;
+  }
+}
+
+@mixin mobile-width-L {
+  @media (max-width: $mobile-width-L) {
+    @content;
+  }
+}
+@mixin desctop-width-L {
+  @media (max-width: $desctop-width-L) {
+    @content;
+  }
+}

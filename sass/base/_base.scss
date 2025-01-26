@@ -1,0 +1,82 @@
+html {
+  font-size: 10px;
+  font-style: normal;
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+}
+#root {
+  max-width: 1440px;
+  margin: auto;
+  min-height: 100vh;
+  color: $color-txt-dark;
+  background-color: $color-bgc-body;
+  transition: all 0.5s;
+}
+#root.dark {
+  color: $color-txt-light;
+  background-color: $color-bgc-backdrop;
+  .button {
+    background-color: $color-btn-hover;
+    color: $color-btn;
+    > svg {
+      filter: $dark-filter-color;
+    }
+
+    &:hover {
+      background-color: $color-btn;
+      > svg {
+        filter: $light-filter-color;
+      }
+      color: $color-btn-hover;
+    }
+  }
+}
+.section,
+.header {
+  max-width: 1360px;
+  padding: 20px;
+  margin: auto;
+}
+.button__container {
+  margin-top: 3rem;
+  width: 30rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+
+  gap: 1.5rem 1rem;
+}
+
+.button {
+  background-color: $color-btn;
+  color: $color-btn-hover;
+  border-radius: 3rem;
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  column-gap: 1rem;
+  > svg {
+    filter: $light-filter-color;
+  }
+  &:hover {
+    background-color: $color-btn-hover;
+    color: $color-btn;
+    > svg {
+      filter: $dark-filter-color;
+    }
+  }
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+.select__container {
+  display: flex;
+  column-gap: 2rem;
+  margin-bottom: 3rem;
+}
