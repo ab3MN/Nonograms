@@ -1,0 +1,18 @@
+{
+  "name": "nonograms",
+  "version": "1.0.0",
+  "description": "Nonograms Game",
+  "main": "app.js",
+  "scripts": {
+    "style": "sass --watch src/sass/style.scss src/sass/style.css",
+    "dev": "webpack --watch ./src/js/app.js",
+    "prod": "webpack --mode production"
+  },
+  "author": "Mykhailo Nikolaiev",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

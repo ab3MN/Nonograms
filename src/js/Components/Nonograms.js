@@ -285,6 +285,7 @@ export default class Nonograms extends Timer {
     this.generateGame();
     this.name = '';
   };
+
   handleSelectGameLevel = (e) => {
     const { value } = e.target;
     if (value !== this.level) {
@@ -297,10 +298,12 @@ export default class Nonograms extends Timer {
       );
     }
   };
+
   handleSelectGameTemplate = (e) => {
     const { value } = e.target;
     this.name = value;
   };
+
   handleClick = (e) => {
     if (!this.isTimerActive && this.savedTime === 0) {
       super.play(this.gameTimer);
@@ -316,17 +319,20 @@ export default class Nonograms extends Timer {
       ? this.handleBoardItemToggle(target, 'cross', 'active')
       : this.handleBoardItemToggle(target, 'active', 'cross');
   };
+
   handleBoardItemToggle = (item, aciveClass, removeClass) => {
     item.classList.contains(aciveClass)
       ? item.classList.remove(aciveClass)
       : (item.classList.add(aciveClass), item.classList.remove(removeClass));
   };
+
   handleRestart = () => {
     this.level = this.nonogram.level;
 
     this.generateGame();
     this.reset(this.nonogram);
   };
+
   handleShowResult = () => {
     const score = this.getBestScore();
     if (score) {
@@ -336,12 +342,14 @@ export default class Nonograms extends Timer {
       modal.genereateModal('<h3> No Results! :( </h3>');
     }
   };
+
   handleRandomGame = (e) => {
     e.disabled = true;
     this.reset(this.nonogram);
     this.nonogram = null;
     this.generateGame();
   };
+
   handleShowAnswer = () => {
     this.board.childNodes.forEach(({ childNodes }) =>
       childNodes.forEach(({ dataset, classList }) => {
@@ -372,6 +380,7 @@ export default class Nonograms extends Timer {
 
     localStorage.setItem('lastGame', JSON.stringify(savedGame));
   };
+
   handleLoadGame = () => {
     const lastGame = localStorage.getItem('lastGame');
     super.stop();
@@ -380,6 +389,7 @@ export default class Nonograms extends Timer {
     this.loadBoardItems(this.board.childNodes, this.userAnswer, 'active');
     this.loadBoardItems(this.board.childNodes, this.crossMatrix, 'cross');
   };
+
   loadBoardItems(boardItems, matrix, _class) {
     matrix.forEach((item, row) =>
       item.forEach(
